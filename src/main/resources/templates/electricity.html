@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Electricity</title>
+</head>
+<body>
+<h1>Electricity Carbon Footprint Calculator</h1>
+<form action="#" th:action="@{/electricity}" th:object="${electricityDTO}" method="post">
+    <label for="unit">Electricity Unit:</label>
+    <select name="unit" id="unit">
+        <option value="KWH">kWh</option>
+        <option value="MWH">mWh</option>
+    </select><br><br>
+    <label for="amount">Electricity Amount:</label>
+    <input type="number" name="amount" id="amount"><br><br>
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+        <option th:each="country : ${electricityDTO.countries}" th:value="${country}" th:text="${country}"></option>
+    </select>
+    <label>
+        <input type="checkbox" name="saveEntry" value="true"> Save this entry
+    </label>
+    <input type="submit" value="Calculate">
+</form>
+
+<div th:if="${electricityDTO.footprint != 0.0}">
+    <p>The carbon footprint for your electricity usage is: <span th:text="${#numbers.formatDecimal(electricityDTO.footprint, 3, 2)}"></span>
+        <span th:switch="${electricityDTO.unit}">
+            <span th:case="'KWH'">kg</span>
+            <span th:case="'MWH'">lb</span>
+        </span> CO2e
+    </p>
+</div>
+</body>
+</html>
+

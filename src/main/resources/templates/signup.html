@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Kolefni - Signup</title>
+    <link th:href="@{signup.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+  <header>
+        <img th:src="@{kolefni.png}" />
+</header>
+  <main>
+  <form th:action="@{/signup}" th:object="${userDTO}"
+        method="post">
+      <div>
+        <h2>Welcome to Kolefni</h2>
+          <div>
+              <p class="text-danger"></p>
+          </div>
+
+          <input type="text" name="username"
+                 required minlength="2" maxlength="20" placeholder="Username"/>
+
+          <input type="email" name="email" placeholder="E-mail" required />
+
+          <input type="password" name="password" placeholder="Password"
+                 required minlength="6" maxlength="10"/>
+
+          <input type="text" name="country"
+                 required minlength="2" maxlength="20" placeholder="Country"/>
+
+          <input type="submit" value="Sign Up">
+      </div>
+  </form>
+  </main>
+</div>
+</body>
+</html>

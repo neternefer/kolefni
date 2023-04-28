@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kolefni</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img th:src="@{kolefni.png}" />
+        </header>
+        <main>
+            <div class="translation">
+                <h4>kolefni (Icelandic) /'kʰɔːl.ɛpnɪ/ carbon</h4>
+            </div>
+            <div class="text-content">
+                <p>Globally, the average carbon footprint is close to 4 tons. <br><br>
+                    To have the best chance of avoiding a 2℃ rise in global temperatures,
+                    the average global carbon footprint per year needs to drop to under 2 tons by 2050.<br><br>
+
+                    Small changes on our part, taking fewer connecting flights or being
+                    conscious of our water and electricity use, can start making a big difference. Join us!</p>
+            </div>
+            <div class="buttons">
+                <a th:href="@{/login}" class="btn-green">Log in</a>
+                <a th:href="@{/signup}" class="btn-green">Sign up</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

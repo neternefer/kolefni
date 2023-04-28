@@ -1,10 +1,9 @@
 package com.kolefni.tracker.repository;
 
-import com.kolefni.tracker.model.User;
+import com.kolefni.tracker.model.Flight;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
-    public User findByEmail(String email);
+public interface FlightRepository extends JpaRepository<Flight, Long> {
 }

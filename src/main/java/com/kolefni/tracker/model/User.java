@@ -2,8 +2,10 @@ package com.kolefni.tracker.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -12,7 +14,12 @@ public class User {
     @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
+
+    @Getter
+    @Setter
+    @Column(name = "username", nullable = false, length = 20)
+    private String username;
 
     @Getter
     @Setter
@@ -26,20 +33,7 @@ public class User {
 
     @Getter
     @Setter
-    @Column(name = "first_name", nullable = false, length = 20)
-    private String firstName;
-
-    @Getter
-    @Setter
-    @Column(name = "last_name", nullable = false, length = 20)
-    private String lastName;
-
-    @Getter
-    @Setter
-    @Column(name = "country", nullable = false, length = 20)
+    @Column(name = "country", nullable = false, length = 30)
     private String country;
-
-
-
 
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Kolefni - User</title>
+      <link rel="stylesheet" href="user.css">
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <img th:src="@{kolefni.png}" />
+        </header>
+        <main>
+          <div class="greeting">
+            <h2>Well met <span th:text="${user.username}"></span>, let's try to change the world</h2>
+          </div>
+          <div class="tiles">
+            <a th:href="@{/home}" class="tile">HOME</a>
+<!--            <a th:href="@{/car}" class="tile">CAR</a>-->
+<!--            <a th:href="@{/travel}" class="tile">TRAVEL</a>-->
+            <a href="" class="tile">CAR</a>
+            <a href="" class="tile">TRAVEL</a>
+          </div>
+        </main>
+      </div>
+<!--<table>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>Date</th>-->
+<!--    <th>Amount of Energy</th>-->
+<!--    <th>Footprint</th>-->
+<!--    <th>Unit</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr th:each="electricity : ${electricityList}">-->
+<!--    <td th:text="${electricity.date}"></td>-->
+<!--    <td th:text="${electricity.amount}"></td>-->
+<!--    <td th:text="${electricity.footprint}"></td>-->
+<!--    <td th:text="${electricity.unit == 'kWh' ? 'kg' : 'lb'}"></td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+</table>
+</body>
+
+
+</body>
+</html>
