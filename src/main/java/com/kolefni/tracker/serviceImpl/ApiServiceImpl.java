@@ -1,9 +1,9 @@
 package com.kolefni.tracker.serviceImpl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kolefni.tracker.service.api.ApiService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -15,11 +15,17 @@ import java.net.http.HttpResponse;
 @Service
 public class ApiServiceImpl implements ApiService {
 
+
+    private Environment env;
     private String root = "https://carbonsutra1.p.rapidapi.com/";
     private final ObjectMapper objectMapper;
 
     public ApiServiceImpl(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
+    }
+
+    public String getApiKey() {
+        return env.getProperty("api.key");
     }
 
     @Override
@@ -29,6 +35,7 @@ public class ApiServiceImpl implements ApiService {
                 .header("content-type", "application/x-www-form-urlencoded")
                 .header("Authorization", "Bearer fQ98oU704xFvsnXcQLVDbpeCJHPglG1DcxiMLKfpeNEMGumlbzVf1lCI6ZBx")
                 .header("X-RapidAPI-Key", "9b528abe82msh2afc628cff721fcp113426jsnd41e248643b3")
+//                .header("X-RapidAPI-Key", getApiKey())
                 .header("X-RapidAPI-Host", "carbonsutra1.p.rapidapi.com")
                 .method("POST", HttpRequest.BodyPublishers.ofString(queryParams))
                 .build();

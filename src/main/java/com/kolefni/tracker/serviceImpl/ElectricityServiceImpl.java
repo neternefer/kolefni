@@ -23,6 +23,8 @@ import java.util.Map;
 @Service
 public class ElectricityServiceImpl {
 
+    @Autowired
+    ApiServiceImpl apiService;
     private final ElectricityRepository electricityRepository;
     private final UserRepository userRepository;
 
@@ -40,9 +42,6 @@ public class ElectricityServiceImpl {
 
     @Autowired
     public UserService userService;
-
-    @Autowired
-    public ApiServiceImpl apiService;
 
     public void createElectricityBill(ElectricityDTO electricityDTO,
                                       UserDTO userDTO,
@@ -78,8 +77,8 @@ public class ElectricityServiceImpl {
     public Double extractData(String jsonData, String unit) throws JsonProcessingException {
         String result;
         JsonNode jsonNode = objectMapper.readTree(jsonData);
-        if(unit == "mWh") {
-            result = jsonNode.get("data").get("co2e_ml").asText();
+        if(unit == "MWh") {
+            result = jsonNode.get("data").get("co2e_lb").asText();
         } else {
             result = jsonNode.get("data").get("co2e_kg").asText();
             System.out.println(result);
